@@ -1,10 +1,10 @@
 <?php
 
-namespace Docs\Default\Http\Controllers\Users;
+namespace Docs\Default\Http\Controllers\User;
 
 use OpenApi\Annotations as OA;
 
-class UsersController
+class UserController
 {
     /**
      * @OA\Post(
@@ -120,6 +120,99 @@ class UsersController
      * )
      */
     public function update()
+    {
+    }
+
+    /**
+     * @OA\Get(
+     *      tags={"Users"},
+     *      path="/users",
+     *      summary="Get all users",
+     *      @OA\Parameter(
+     *          in="header",
+     *          name="Authorization",
+     *          description="Bearer Token",
+     *          required=true,
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Success",
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(ref="#/components/schemas/UserResource")
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=500,
+     *          description="Internal Error",
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  @OA\Property(
+     *                      property="message",
+     *                      type="string"
+     *                  ),
+     *                  example={"message": "Internal Error"}
+     *              )
+     *          )
+     *      )
+     * )
+     */
+    public function index()
+    {
+    }
+
+    /**
+     * @OA\Get(
+     *      tags={"Users"},
+     *      path="/users/{user_id}",
+     *      summary="Get a user",
+     *      @OA\Parameter(
+     *          in="header",
+     *          name="Authorization",
+     *          description="Bearer Token",
+     *          required=true,
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Parameter(
+     *          in="path",
+     *          name="user_id",
+     *          description="",
+     *          required=true,
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Success",
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(ref="#/components/schemas/User")
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=500,
+     *          description="Internal Error",
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  @OA\Property(
+     *                      property="message",
+     *                      type="string"
+     *                  ),
+     *                  example={"message": "Internal Error"}
+     *              )
+     *          )
+     *      )
+     * )
+     */
+    public function show()
     {
     }
 }

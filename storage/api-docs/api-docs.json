@@ -21,12 +21,60 @@
     ],
     "paths": {
         "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all users",
+                "operationId": "90fc29f52d13c3f4ecccc10eb407176c",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer Token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserResource"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Internal Error"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "post": {
                 "tags": [
                     "Users"
                 ],
                 "summary": "Add a new user register",
-                "operationId": "2383778ea82fc5c5d66c0d965ec4b141",
+                "operationId": "fe5cc41f758743cf9b9f6931a908ba60",
                 "requestBody": {
                     "description": "",
                     "required": true,
@@ -91,12 +139,69 @@
             }
         },
         "/users/{user_id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get a user",
+                "operationId": "dd51a0a592aea25428afdf18094bcc0c",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer Token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "message": "Internal Error"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "put": {
                 "tags": [
                     "Users"
                 ],
                 "summary": "Update a user",
-                "operationId": "9ea708e7637d064cc763878778673589",
+                "operationId": "67c28e7d3efbb09e0b36babda3d7c3c7",
                 "parameters": [
                     {
                         "name": "Authorization",
