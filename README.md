@@ -1,37 +1,23 @@
+### Laravel 9 Boilerplate
+###### A boilerplate to easily start your Laravel projects!
 
-# Setup Docker Para Projetos Laravel (8 ou 9)
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
+#### Stack
+![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
 
-### Passo a passo
-Clone Repositório
-```sh
-git clone https://github.com/especializati/setup-docker-laravel.git
-```
+#### Get Started
+- Make a repository clone
+- Create .env file
 
-Clone os Arquivos do Laravel
-```sh
-git clone https://github.com/laravel/laravel.git app-laravel
-```
-
-
-Copie os arquivos docker-compose.yml, Dockerfile e o diretório docker/ para o seu projeto
-```sh
-cp -rf setup-docker-laravel/* app-laravel/
-```
-```sh
-cd app-laravel/
-```
-
-
-Crie o Arquivo .env
 ```sh
 cp .env.example .env
 ```
 
-
-Atualize as variáveis de ambiente do arquivo .env
+- Update .env variables
 ```dosini
-APP_NAME=EspecializaTi
+APP_NAME=Laravel
 APP_URL=http://localhost:8989
 
 DB_CONNECTION=mysql
@@ -49,31 +35,30 @@ REDIS_HOST=redis
 REDIS_PASSWORD=null
 REDIS_PORT=6379
 ```
+- To create the Docker containers, run the following command in the terminal:
 
+  ```docker-compose up -d --build```
+  
+- Inside the laravel container, install the dependencies with composer:
 
-Suba os containers do projeto
-```sh
-docker-compose up -d
-```
+    ``` docker exec -it "container_name" bash```
+    ```composer install```
 
+- Inside the laravel container, make application key:
 
-Acessar o container
-```sh
-docker-compose exec app bash
-```
+    ``` docker exec -it "container_name" bash```
+    ```php artisan key:generate```
+    
+- To run tests:
+    ```php artisan test```
+- Generate API Docs:
+    ```php artisan l5-swagger:generate```
+Creates an API documentation in this route: localhost:8989/api/documentation
+    
+External packages and services
+This project is currently extended with the following packages and services. Instructions on how to use them in your own app are linked below.
 
-
-Instalar as dependências do projeto
-```sh
-composer install
-```
-
-
-Gerar a key do projeto Laravel
-```sh
-php artisan key:generate
-```
-
-
-Acessar o projeto
-[http://localhost:8989](http://localhost:8989)
+| Package  | Docs |
+| ------------- | ------------- |
+|  L5-Swagger OpenAPI  | https://github.com/DarkaOnLine/L5-Swagger/  |
+|  L5 Repository  | https://github.com/andersao/l5-repository  |
