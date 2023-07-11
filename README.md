@@ -37,22 +37,32 @@ REDIS_PORT=6379
 ```
 - To create the Docker containers, run the following command in the terminal:
 
-  ```docker-compose up -d --build```
+  ```dosini
+  docker-compose up -d --build
+  ```
   
 - Inside the laravel container, install the dependencies with composer:
 
-    ``` docker exec -it "container_name" bash```
-    ```composer install```
+    ```dosini
+    docker exec -it "container_name" bash
+    composer install
+    ```
 
 - Inside the laravel container, make application key:
 
-    ``` docker exec -it "container_name" bash```
-    ```php artisan key:generate```
+    ```dosini
+       docker exec -it "container_name" bash
+    php artisan key:generate
+    ```
     
 - To run tests:
-    ```php artisan test```
+    ```dosini
+       php artisan test
+    ```
 - Generate API Docs:
-    ```php artisan l5-swagger:generate```
+    ```dosini
+      php artisan l5-swagger:generate
+    ```
 Creates an API documentation in this route: localhost:8989/api/documentation
     
 External packages and services
